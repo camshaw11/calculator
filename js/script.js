@@ -77,7 +77,12 @@
  
 // make sure last click was not null
 // if it was null , end switch
-// otherwise run calculate function
+
+// otherwise run calculate function with temp value 
+
+// set previous operator back to null because equation has finished
+
+// temp value now equals out running total
 
 
 // if value clicked is <- //
@@ -153,9 +158,10 @@
 
 
 
-
-
-
+// random hsl color
+// function randomHsl() {
+//     return 'hsla(' + (Math.floor(Math.random()*360) + ', 100%, 70%, 1)';
+// }
 
 
 

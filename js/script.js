@@ -4,9 +4,9 @@
 /////////-----------------------//////////
 
 // create variables to keep track of totals
-// we need to keep track of the running total
-// and the previous operator
-// and the temporary value 
+// 1. we need to keep track of the running total
+// 1. and the previous operator
+// 1. and the temporary value 
 
 
 
@@ -33,7 +33,7 @@
 // run function to handle value
 
 
-// call function to clear the screen
+// call function to re render screen
 
 
 /////////-----------------------//////////
@@ -47,10 +47,10 @@
 /////////-----------------------//////////
 
 // run function if value is a number or decimal //
-// if buffer number on screen is 0
-// buffer is now assigned the value that was clicked
+// if temp number is 0
+// temp is now assigned the value that was clicked
 
-// else we add the value to the buffer 
+// else we append the value to the buffer 1 1 = 11
 
 /////////-----------------------//////////
 
@@ -70,7 +70,7 @@
 
 // our total is cleared back to 0
 // we set our previous operator to null
-// set our buffer back to 0
+// set our temp back to 0
 
 
 // if value clicked is '=' //
@@ -99,7 +99,16 @@
 /////////-----------------------//////////
 
 // run function to handle math
+// store temp as integer so we dont lose it
 
+// if our current total is 0 change it the temp number
+
+
+// we know if we are in this function our previous operator is an operator
+// set our previous operator to the value we just clicked so we dont lose it
+
+
+// ready for next value to come in, set temp back to "0"
 /////////-----------------------//////////
 
 
@@ -111,22 +120,22 @@
 
 /////////-----------------------//////////
 
-// run calculate function
+// run calculate function with temp int as argument
 
-// if clicked value was +
-// add the current number to running total
-
-
-// if clicked value was -
-// minus current number from running total
+// if operator was +
+// add the temp integer to running total
 
 
-// if clicked value was X
-// multiply current number to the running total
+// if operator was -
+// minus temp integer from running total
 
 
-// if clicked value was /
-// divide current number by the running total
+// if operator was X
+// multiply temp integer to the running total
+
+
+// if operator was /
+// divide temp integer by the running total
 
 
 /////////-----------------------//////////

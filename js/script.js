@@ -44,7 +44,7 @@ function handleNumber(value) {
     if (temp === "0") {
         temp = value;
     } else {
-        // else we append the value to the temp 1 1 = 11
+        // else we append the value to the temp
         temp += value;
     }
 }
@@ -74,11 +74,13 @@ function handleSymbol(value) {
             // make sure last click was not null
             // if it was null , end switch
             if (previousOperator === null) {
+                console.log("clicked again")
                 return;
             }
             // otherwise run calculate function with temp value 
             calculate(temp);
-            screenSmall.innerText = "";
+            // show full equation on screen
+            screenSmall.innerText += ` ${temp} =`;
             // set previous operator back to null because equation has finished
             previousOperator = null;
             // temp value now equals our running total
@@ -103,20 +105,17 @@ function doMath(value) {
     // we know if we are in this function our previous operator is an operator
     // set our previous operator to the value we just clicked so we dont lose it
     previousOperator = value;
-    console.log(previousOperator)
-    // ready for next value to come in, set temp back to "0"
-    screenSmall.innerText = temp + " " + previousOperator;
-    temp = "0";
-    console.log(temp)
 
+    // show equation on screen
+    screenSmall.innerText = `${temp} ${previousOperator}`;
+    // ready for next value to come in, set temp back to "0"
+    temp = "0";
 }
 
 /////////-----------------------//////////
 
 // run calculate function with temp int as argument
 function calculate(temp) {
-    console.log(temp)
-    console.log(runningTotal)
     // if operator was +
     if (previousOperator === "+") {
         // add the temp value to running total

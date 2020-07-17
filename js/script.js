@@ -39,10 +39,17 @@ function buttonClicked(e) {
 
 // run function if value is a number or decimal //
 function handleNumber(value) {
+
+    console.log(value, temp, previousOperator)
     // if temp number is 0
     // temp is now assigned the value that was clicked  
     if (temp === "0") {
         temp = value;
+    } else if (previousOperator === "=") {
+        previousOperator = null;
+        screenSmall.innerText = "";
+        // set our temp back to 0
+        temp = value;    
     } else {
         // else we append the value to the temp
         temp += value;
@@ -82,7 +89,8 @@ function handleSymbol(value) {
             // show full equation on screen
             screenSmall.innerText += ` ${temp} =`;
             // set previous operator back to null because equation has finished
-            previousOperator = null;
+            // previousOperator = null; -----
+            previousOperator = "=";
             // temp value now equals our running total
             temp = runningTotal;
             break;

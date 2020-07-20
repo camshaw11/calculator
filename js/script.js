@@ -26,10 +26,8 @@ function buttonClicked(e) {
     if (value === "." || !isNaN(value)){
         // run function to handle value
         handleNumber(value);
-    }
-    // if value clicked on is not a number
-    else if (!parseInt(value)) {
-        // run function to handle the symbol
+    } else if (!parseInt(value)) {
+        // if not value run function to handle the symbol
         handleSymbol(value);
     }
     // call function to re render screen

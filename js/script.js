@@ -96,14 +96,13 @@ function handleSymbol(value) {
 }
 
 // run function to handle math
-function doMath(value) {
+doMath = (value) => {
     // store temp as integer so we dont lose it
     const integerTemp = parseFloat(temp);
     // if our current total is 0 change it the temp integer
     if (runningTotal === 0) {
         runningTotal = integerTemp;
     }
-    // we know if we are in this function our previous operator is an operator
     // set our previous operator to the value we just clicked so we dont lose it
     previousOperator = value;
 

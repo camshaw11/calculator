@@ -1,7 +1,7 @@
 // create variables to keep track of totals
 // 1. we need to keep track of the running total
-// 1. and the previous operator to hold our -+/* that was clicked
-// 1. and the temporary value 
+// 2. and the previous operator to hold our -+/* that was clicked
+// 3. and the temporary value 
 
 let screen = document.querySelector(".screen-number");
 let screenSmall = document.querySelector(".text-small");
@@ -13,8 +13,6 @@ let temp = "0";
 // create event listener to listen for clicks
 // event bubbling on all buttons
 btnGroup.addEventListener("click", buttonClicked);
-
-/////////-----------------------//////////
 
 // run function on button click //
 function buttonClicked(e) {
@@ -35,13 +33,10 @@ function buttonClicked(e) {
     reRender();
 }
 
-/////////-----------------------//////////
-
 // run function if value is a number or decimal //
 function handleNumber(value) {
     // if temp number is 0
     // temp is now assigned the value that was clicked  
-    // console.log(screenSmall.innerText.includes("="))
     if (temp === "0") {
         temp = value;
     } else if (screenSmall.innerText.includes("=")) {
@@ -59,8 +54,6 @@ function handleNumber(value) {
         temp += value;
     }
 }
-
-/////////-----------------------//////////
 
 // run function if value is a special symbol AC, =, <- //
 function handleSymbol(value) {
@@ -84,7 +77,6 @@ function handleSymbol(value) {
         case "=":
             // make sure last click was not null
             // if it was null , end switch
-            // console.log(previousOperator, temp, value)
             if (previousOperator === null) {
                 return;
             }
@@ -94,17 +86,14 @@ function handleSymbol(value) {
             screenSmall.innerText += ` ${temp} =`;
             // set previous operator back to null because equation has finished
             previousOperator = null; 
-            // previousOperator = "=";
             // temp value now equals our running total
             temp = runningTotal;
             break;
         // otherwise default option is to run math function
         default: 
-        doMath(value);
+            doMath(value);
     }
 }
-
-/////////-----------------------//////////
 
 // run function to handle math
 function doMath(value) {
@@ -123,8 +112,6 @@ function doMath(value) {
     // ready for next value to come in, set temp back to "0"
     temp = "0";
 }
-
-/////////-----------------------//////////
 
 // run calculate function with temp int as argument
 function calculate(temp) {
@@ -147,8 +134,6 @@ function calculate(temp) {
         runningTotal /= parseInt(temp);
     }
 }
-
-/////////-----------------------//////////
 
 // run re render function
 function reRender() {

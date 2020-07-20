@@ -41,8 +41,19 @@ function buttonClicked(e) {
 function handleNumber(value) {
     // if temp number is 0
     // temp is now assigned the value that was clicked  
+    // console.log(screenSmall.innerText.includes("="))
     if (temp === "0") {
         temp = value;
+    } else if (screenSmall.innerText.includes("=")) {
+        // if equation has finished and user types in another number
+        // clear screen and empty values
+        // our total is cleared back to 0
+        runningTotal = 0;
+        // we set our previous operator to null
+        previousOperator = null;
+        screenSmall.innerText = "";
+        // set temp as value clicked
+        temp = value; 
     } else {
         // else we append the value to the temp
         temp += value;

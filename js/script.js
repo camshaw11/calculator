@@ -55,8 +55,8 @@ function handleNumber(value) {
     }
 }
 
-// run function if value is a special symbol AC, =, <- //
-function handleSymbol(value) {
+// run function if value is a special symbol AC, =, CE 
+handleSymbol = (value) => {
     // switch statement to check value
     switch (value) {
         // if value clicked is AC //
@@ -65,10 +65,12 @@ function handleSymbol(value) {
             runningTotal = 0;
             // we set our previous operator to null
             previousOperator = null;
+            // clear screen
             screenSmall.innerText = "";
             // set our temp back to 0
             temp = "0";    
             break;
+        // if value clicked is CE //
         case "CE":
             // set our temp value back to 0
             temp = "0";
@@ -105,7 +107,6 @@ doMath = (value) => {
     }
     // set our previous operator to the value we just clicked so we dont lose it
     previousOperator = value;
-
     // show equation on screen
     screenSmall.innerText = `${temp} ${previousOperator}`;
     // ready for next value to come in, set temp back to "0"

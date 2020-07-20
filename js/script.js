@@ -33,8 +33,8 @@ function buttonClicked(e) {
     reRender();
 }
 
-// run function if value is a number or decimal //
-function handleNumber(value) {
+// run function if value is a number or decimal 
+handleNumber = (value) => {
     // if temp number is 0
     // temp is now assigned the value that was clicked  
     if (temp === "0") {

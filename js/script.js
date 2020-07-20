@@ -136,11 +136,10 @@ function calculate(temp) {
 }
 
 // run re render function
-function reRender() {
+reRender = () => {
     // sets the text on screen to the current value
     screen.innerText = temp;
 }
-
 
 
 

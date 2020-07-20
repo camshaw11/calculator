@@ -113,29 +113,23 @@ function doMath(value) {
     temp = "0";
 }
 
-// run calculate function with temp int as argument
-function calculate(temp) {
-    // if operator was +
+calculate = (temp) => {
     if (previousOperator === "+") {
         // add the temp value to running total
         runningTotal += parseInt(temp);
-    // if operator was -
     } else if (previousOperator === "-") {
         // minus temp value from running total
         runningTotal -= parseInt(temp);
-    // if operator was x
     } else if (previousOperator === "×") {
         // multiply temp value by the running total
         runningTotal *= parseInt(temp);
-    } else if (previousOperator === "%") {
-        runningTotal *= (parseInt(temp) / 100);
     } else {
         // divide temp value by the running total
         runningTotal /= parseInt(temp);
     }
 }
 
-// run re render function
+// run rerender function
 reRender = () => {
     // sets the text on screen to the current value
     screen.innerText = temp;

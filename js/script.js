@@ -1,11 +1,14 @@
-// create variables to keep track of totals
-// 1. we need to keep track of the running total
-// 2. and the previous operator to hold our -+/* that was clicked
-// 3. and the temporary value 
+// dom elements to manipulate
 
 let screen = document.querySelector(".screen-number");
 let screenSmall = document.querySelector(".text-small");
 let btnGroup = document.querySelector(".button-wrapper");
+
+// variables to keep track of totals
+// 1. keep track of the running total
+// 2. the previous operator to hold our -+/* that was clicked
+// 3. the temporary value 
+
 let runningTotal = 0;
 let previousOperator = 0;
 let temp = "0";
@@ -14,26 +17,26 @@ let temp = "0";
 // event bubbling on all buttons
 btnGroup.addEventListener("click", buttonClicked);
 
-// run function on button click //
+// run function on button click
 function buttonClicked(e) {
     // set value = to user click
     let value = e.target.innerText;
     // if value clicked on is a number 
     // or if value is a decimal point
-    // run function to handle value
     if (value === "." || !isNaN(value)){
+        // run function to handle value
         handleNumber(value);
     }
     // if value clicked on is not a number
-    // run function to handle the symbol
     else if (!parseInt(value)) {
+        // run function to handle the symbol
         handleSymbol(value);
     }
     // call function to re render screen
     reRender();
 }
 
-// run function if value is a number or decimal 
+// function if value is a number or decimal 
 handleNumber = (value) => {
     // if temp number is 0
     // temp is now assigned the value that was clicked  
@@ -55,7 +58,7 @@ handleNumber = (value) => {
     }
 }
 
-// run function if value is a special symbol AC, =, CE 
+// function if value is a special symbol AC, =, CE 
 handleSymbol = (value) => {
     // switch statement to check value
     switch (value) {
@@ -97,7 +100,7 @@ handleSymbol = (value) => {
     }
 }
 
-// run function to handle math
+// function to handle math
 doMath = (value) => {
     // store temp as integer so we dont lose it
     const integerTemp = parseFloat(temp);
@@ -113,6 +116,7 @@ doMath = (value) => {
     temp = "0";
 }
 
+// function to handle calculations
 calculate = (temp) => {
     if (previousOperator === "+") {
         // add the temp value to running total
@@ -129,21 +133,8 @@ calculate = (temp) => {
     }
 }
 
-// run rerender function
+// rerender function
 reRender = () => {
     // sets the text on screen to the current value
     screen.innerText = temp;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
